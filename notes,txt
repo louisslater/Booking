@@ -1,0 +1,23 @@
+setup
+
+pip install flask flask-mysql
+pip install mysql-connector-python
+
+brew install mysql
+
+brew services start mysql
+brew services stop mysql
+mysql -u root
+
+x pip install Flask==2.1.3
+
+pip install --upgrade flask
+pip install --upgrade werkzeug
+
+pip uninstall flaskext.mysql
+pip install flask-mysqldb
+
+brew install pkg-config mysql
+
+
+python3 app.py

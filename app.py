@@ -31,6 +31,15 @@ def get_id():
     booking = {'booking_id': booking[0], 'name': booking[1], 'email': booking[2], 'booking_datetime': booking[3]}
     return render_template("book.html", booking = booking)
 
+@app.route('/manage_bookings', methods=['GET'])
+def get_client_bookings():
+    cursor = mysql.connection.cursor()  # Use mysql.connection directly
+    cursor.execute("SELECT * from booking.bookings WHERE booked = 1 order by booking_datetime;")
+    bookings = cursor.fetchall()
+    bookings_list = [{'booking_id': booking[0], 'name': booking[1], 'email': booking[2], 'booking_datetime': booking[3]} for booking in bookings]
+    cursor.close()
+    return render_template('manage_bookings.html', bookings = bookings_list)
+
 @app.route('/book', methods=['POST'])
 def book():
     name = request.form.get('name')
@@ -38,7 +47,7 @@ def book():
     booking_datetime = request.form.get('booking_datetime')
     booking_id = request.form.get('booking_id')
     cursor = mysql.connection.cursor()  # Use mysql.connection directly
-    cursor.execute("UPDATE booking.bookings SET name = %s, email = %s where booking_id = %s;", (name, email, booking_id))
+    cursor.execute("UPDATE booking.bookings SET name = %s, email = %s, booked = 1 where booking_id = %s;", (name, email, booking_id))
     mysql.connection.commit()
     cursor.close()
     booking = {'name': name, 'booking_datetime': booking_datetime}

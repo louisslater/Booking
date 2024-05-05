@@ -18,7 +18,7 @@ mysql.init_app(app)
 
 @app.route('/')
 def main():
-    return render_template_string("")
+    return render_template("index.html")
 
 
 @app.route('/book', methods=['GET'])

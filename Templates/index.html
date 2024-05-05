@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block content %}
+    <h2>Welcome to Teleprescence Uni Robot Tours</h2>
+		<div class="container mt-5">
+			<div class="row">
+				<div class="col-sm-6">
+					<!-- Left item -->
+					<div class="text-center">
+						<div>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/yh83bxQ5sLY?autoplay=1&amp;mute=1" frameborder="0" allow="accelerometer; autoplay;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+						</iframe>
+						</div>
+						<div><span class="small"> "Campus Tour | University of Lincoln" Youtube, uploaded by University of Lincoln September 1st 2020 https://www.youtube.com/watch?v=yh83bxQ5sLY</span></div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<!-- Right item -->
+					<div class="text-center">
+						<img id="image-8-6" alt="" src="{{ url_for('static', filename='images/d3-hero-hd.png') }}" width="250" height="auto" >
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container mt-5">
+			<div class="row">
+				<div class="col-sm-6">
+					<!-- Left item -->
+					<img id="image-8-6" alt="" src="{{ url_for('static', filename='images/teleprescence_robot_1.jpg') }}" width="450" height="auto" >
+				</div>
+				<div class="col-sm-6">
+					<!-- Right item -->
+					<div class="text-left">
+						<h5>What's Included</h5> 
+						<div>Our comprehensive package includes advanced features to meet all your telecomms robot needs. Experience unparalleled efficiency and performance.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+{% endblock %}

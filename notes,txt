@@ -17,7 +17,7 @@ pip install --upgrade werkzeug
 pip uninstall flaskext.mysql
 pip install flask-mysqldb
 
-brew install pkg-config mysql0
+brew install pkg-config mysql
 
 
 python3 app.py
